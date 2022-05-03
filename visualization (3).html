@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.22.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.20.8"></script>
+</head>
+<body>
+  <div id="vis"/>
+  <script>
+    const spec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/coconutcc/jobs-data/main/NYC_Job.csv"
+  },
+  "columns": 2,
+  "spacing": 80,
+  "vconcat": [
+    {
+      "title": "No. of Jobs base Location",
+      "params": [{"name": "pts", "select": "point"}],
+      "mark": "rect",
+      "width": 350,
+      "height": 200,
+      "encoding": {
+        "x": {"field": "Work Location 1", "type": "nominal"},
+        "y": {"field": "Career Level", "type": "nominal"},
+        "color": {
+          "condition": {
+            "param": "pts",
+            "aggregate": "count",
+            "type": "quantitative"
+          },
+          "value": "grey"
+        }
+      },
+      "config": {"view": {"stroke": "transparent"}}
+    },
+    {
+      "title": "Average Salary by Job Category based on Location",
+      "width": 350,
+      "height": 200,
+      "mark": "line",
+      "encoding": {
+        "x": {
+          "field": "Work Location 1",
+          "type": "nominal",
+          "scale": {"padding": 0.5}
+        },
+        "y": {"aggregate": "mean", "field": "Salary", "type": "quantitative"},
+        "color": {"field": "Job Category", "type": "nominal"}
+      }
+    }
+  ],
+  "config": {}
+};
+    vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+  </script>
+</body>
+</html>
