@@ -14,12 +14,12 @@
     "url": "https://raw.githubusercontent.com/coconutcc/jobs-data/main/NYC_Job.csv"
   },
   "columns": 2,
-  "spacing": 50,
+  "spacing": 30,
   "vconcat": [
     {
       "title": "No. of Jobs by Agency",
-      "width": 300,
-      "height": 150,
+      "width": 200,
+      "height": 100,
       "transform": [
         {
           "window": [{"op": "rank", "as": "rank"}],
@@ -39,8 +39,8 @@
     },
     {
       "title": "Average Salary by Job Category",
-      "width": 300,
-      "height": 150,
+      "width": 200,
+      "height": 100,
       "transform": [
         {
           "window": [{"op": "rank", "as": "rank"}],
@@ -60,8 +60,8 @@
     },
     {
       "title": "Average Salary by Job Category - Monthly",
-      "width": 300,
-      "height": 150,
+      "width": 200,
+      "height": 100,
       "mark": {"type": "line", "point": true},
       "encoding": {
         "x": {"timeUnit": "yearmonth", "field": "Date"},
@@ -71,8 +71,8 @@
     },
     {
       "title": "No. of Jobs by Job Category - Monthly",
-      "width": 300,
-      "height": 150,
+      "width": 200,
+      "height": 100,
       "mark": "bar",
       "encoding": {
         "x": {"timeUnit": "yearmonth", "field": "Date", "type": "nominal"},
@@ -114,8 +114,8 @@
         },
         "y": {"title": "Agency", "field": "Agency", "type": "nominal"}
       },
-      "width": 300,
-      "height": 150,
+      "width": 200,
+      "height": 100,
       "mark": "point",
       "params": [
         {"name": "brush", "select": {"type": "interval", "encodings": ["x"]}}
@@ -148,8 +148,8 @@
         "x": {"aggregate": "count"},
         "y": {"title": "Job Category", "field": "Job Category"}
       },
-      "width": 300,
-      "height": 150,
+      "width": 200,
+      "height": 100,
       "mark": "bar",
       "params": [
         {"name": "click", "select": {"type": "point", "encodings": ["color"]}}
@@ -160,8 +160,8 @@
       "title": "No. of Jobs base Location",
       "params": [{"name": "pts", "select": "point"}],
       "mark": "rect",
-      "width": 300,
-      "height": 150,
+      "width": 200,
+      "height": 100,
       "encoding": {
         "x": {"field": "Work Location 1", "type": "nominal"},
         "y": {"field": "Career Level", "type": "nominal"},
@@ -178,8 +178,8 @@
     },
     {
       "title": "Average Salary by Job Category based on Location",
-      "width": 300,
-      "height": 150,
+      "width": 200,
+      "height": 100,
       "mark": "line",
       "encoding": {
         "x": {
